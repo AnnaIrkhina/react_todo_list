@@ -16,7 +16,7 @@ function Form(props) {
             <div className="input-group mb-3">
 
                 <input class="form-control" type="text" onChange={e => setTask(e.target.value)} on value={task}/>
-                <div className="input-group-prepend">
+                <div class="btn-group" role="group" aria-label="Basic example">
                     <button className="btn btn-outline-secondary" onClick={addTask} disabled={task.trim() === ''}>➕
                     </button>
                 </div>

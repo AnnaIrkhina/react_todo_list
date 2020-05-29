@@ -17,6 +17,7 @@ function List(props) {
     }
     const [taskEdit, setTaskEdit] = useState({})
     const editMode = (task) => {
+
         setTaskEdit(task);
         console.log(task);
     }
@@ -39,26 +40,26 @@ function List(props) {
                         {/*    : '❗️'}*/}
                         <div className="input-group">
                             {
-                                taskEdit.id === el.id
+                                taskEdit.id === el.id && el.isDone === false
                                     ? <>
                                         <input class="form-control" type="text" value={taskEdit.name}
                                                onChange={onEditTaskChange}/>
 
-                                        <div className="input-group-prepend">
-                                            <button className="btn btn-outline-secondary float-left" onClick={taskSave}
+                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                            <button class="btn btn-outline-secondary " onClick={taskSave}
                                                     disabled={!taskEdit.name.trim()}>💾
                                             </button>
                                         </div>
                                     </>
-                                    : <span class="form-control" onClick={() => editMode(el)}>{el.name}</span>
+                                    : <span class="form-control" text-decoration="line-through" onClick={() => editMode(el)}>{el.name}</span>
 
 
                             }
-                            <div className="input-group-prepend">
-                                <button className="btn btn-outline-secondary float-right"
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <button class="btn btn-outline-secondary"
                                         onClick={() => onTaskDone(el.id)}>{el.isDone ? '💚' : '❤️'}</button>
 
-                                <button className="btn btn-outline-secondary float-right"
+                                <button class="btn btn-outline-secondary"
                                         onClick={() => deleteTask(el.id)}>❌
                                 </button>
                             </div>
