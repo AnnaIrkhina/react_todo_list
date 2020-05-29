@@ -10,6 +10,20 @@ const toDosInit = [{id: Math.random(), name: "To Do Home Work", isDone: false},
 
 ]
 
+
+const objToday = new Date();
+
+const    weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const    dayOfWeek = weekday[objToday.getDay()];
+const    dayOfMonth =  ( objToday.getDate() < 10) ? '0' + objToday.getDate() : objToday.getDate();
+const    months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const    curMonth = months[objToday.getMonth()];
+const    curYear = objToday.getFullYear();
+
+const today = dayOfWeek + " " + dayOfMonth + " of " + curMonth + ", " + curYear;
+
+
+
 function App() {
     const [toDos, setToDOS] = useState(toDosInit);
     const onTaskCeate = (task) => {
@@ -38,7 +52,7 @@ function App() {
 
     return (
         <div class="container">
-            <h1>Todo List</h1>
+            <h1 class="c">Todo List for {today}</h1>
 
             <Form onTaskCeate={onTaskCeate}/>
             <List toDos={toDos} onTaskDelete={onTaskDelete} onTaskDone={onTaskDone} onTaskSave={onTaskSave}/>

@@ -35,9 +35,7 @@ function List(props) {
             <ul  class="list-group">
                 {
                     props.toDos.map((el) => <li key={el.id} class="list-group-item">
-                        {/*{el.isDone */}
-                        {/*    ? '✔️'*/}
-                        {/*    : '❗️'}*/}
+
                         <div className="input-group">
                             {
                                 taskEdit.id === el.id && el.isDone === false
@@ -51,7 +49,7 @@ function List(props) {
                                             </button>
                                         </div>
                                     </>
-                                    : <span class="form-control" text-decoration="line-through" onClick={() => editMode(el)}>{el.name}</span>
+                                    : <span class= {el.isDone === false ? "form-control": "form-control c"}  onClick={() => editMode(el)}>{el.name}</span>
 
 
                             }

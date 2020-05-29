@@ -27,8 +27,15 @@
 .App-link {
   color: #61dafb;
 }
-.list todo items {
-  width: 500px;
+h1.c {
+  margin: 30px;
+  padding: 30px;
+  color: red;
+}
+span.c {
+  -webkit-text-decoration-line: line-through; /* Safari */
+  text-decoration-line: line-through;
+  text-decoration-color: lime;
 }
 
 @keyframes App-logo-spin {
