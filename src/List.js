@@ -34,7 +34,10 @@ function List(props) {
         <div class="container">
             <ul  class="list-group">
                 {
-                    props.toDos.map((el) => <li key={el.id} class="list-group-item">
+                    props.toDos.map((el) =>
+                        props.filter===0 || (props.filter === 1 && el.isDone === false) || (props.filter ===2 && el.isDone === true)
+                        ?
+                        <li key={el.id} class="list-group-item">
 
                         <div className="input-group">
                             {
@@ -66,7 +69,8 @@ function List(props) {
                         {/*</div>*/}
                         {/*// <button onClick = {()=> onTaskDone(el.id)}>{el.isDone? '✔️' :  '❗️' }</button>*/}
 
-                    </li>)
+                    </li>
+                    :"")
                 }
             </ul>
         </div>

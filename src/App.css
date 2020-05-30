@@ -27,7 +27,7 @@
 .App-link {
   color: #61dafb;
 }
-h1.c {
+h1.c, div.c {
   margin: 30px;
   padding: 30px;
   color: red;
