@@ -56,6 +56,7 @@ function App() {
     const onTaskDelete = (id) => {
         const updatedTodos = toDos.filter(el => el.id !== id);
         setToDOS(updatedTodos);
+        console.log(" setToDOS(updatedTodos);");
         updateNumberOfTask(updatedTodos);
         console.log(toDos);
     }

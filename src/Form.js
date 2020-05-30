@@ -12,13 +12,31 @@ function Form(props) {
         props.onFilterClicked(idFilter);
     }
 
+    const onChangeTaks = (e) =>{
+        setTask(e.target.value);
+        console.log(e.target.value);
+        console.log(e.target.keyCode);
+
+        if(e.target.keyCode === 13){
+            addTask();
+
+        }
+    }
+    const onKeyPessed = (e) =>{
+        if(e.key==="Enter"){
+            console.log("enter clicked");
+            addTask();
+        }
+    }
+
     return (
 
         <div class="container">
 
             <div className="input-group mb-3">
 
-                <input class="form-control" type="text" onChange={e => setTask(e.target.value)} on value={task}/>
+                {/*<input class="form-control" type="text" onChange={e => setTask(e.target.value)} on value={task}/>*/}
+                <input className="form-control" type="text" onChange={ e=> onChangeTaks(e)}  onKeyPress={e=>onKeyPessed(e)} on value={task} id="create_task"/>
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <button className="btn btn-outline-secondary" onClick={addTask} disabled={task.trim() === ''}>➕
                     </button>

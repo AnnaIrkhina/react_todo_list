@@ -25,6 +25,9 @@ function List(props) {
         console.log('OnChange ' + e.target.value);
         setTaskEdit({...taskEdit, name: e.target.value});
     }
+    const onKeyPress = (e)=>{
+        if(e.key === "Enter") taskSave();
+    }
     const taskSave = () => {
         props.onTaskSave(taskEdit);
         setTaskEdit({});
@@ -43,8 +46,8 @@ function List(props) {
                             {
                                 taskEdit.id === el.id && el.isDone === false
                                     ? <>
-                                        <input class="form-control" type="text" value={taskEdit.name}
-                                               onChange={onEditTaskChange}/>
+                                        <input class="form-control" type="text" autoFocus="true" value={taskEdit.name}
+                                               onChange={onEditTaskChange} onKeyPress={onKeyPress}/>
 
                                         <div class="btn-group" role="group" aria-label="Basic example">
                                             <button class="btn btn-outline-secondary " onClick={taskSave}
